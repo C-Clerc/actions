@@ -12,5 +12,5 @@ on:
 
 jobs:
   follow-user:
-    uses: lameduse/actions/.github/workflows/follow-contributors.yaml@main
+    uses: c-clerc/actions/.github/workflows/follow-contributors.yaml@main
     secrets: inherit
