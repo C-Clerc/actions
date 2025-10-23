@@ -20,10 +20,10 @@ concurrency:
 
 jobs:
   build-push-docker:
-    uses: lameduse/actions/.github/workflows/build-push-docker.yaml@main
+    uses: c-clerc/actions/.github/workflows/build-push-docker.yaml@main
     secrets: inherit
   build-push-node:
-    uses: lameduse/actions/.github/workflows/build-push-node.yaml@main
+    uses: c-clerc/actions/.github/workflows/build-push-node.yaml@main
     secrets: inherit
   status-check:
     name: Build
