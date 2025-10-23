@@ -20,7 +20,7 @@ concurrency:
 
 jobs:
   lint:
-    uses: lameduse/actions/.github/workflows/lint.yaml@main
+    uses: c-clerc/actions/.github/workflows/lint.yaml@main
     secrets: inherit
   status-check:
     name: Lint
