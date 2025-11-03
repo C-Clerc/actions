@@ -9,6 +9,9 @@ on:
       LAMEDUSE_REGISTRY_TOKEN:
         required: true
         description: 'Lameduse registry token'
+      LAMEDUSE_REGISTRY:
+        required: true
+        description: 'Lameduse registry url'
     inputs:
       TARGET_DIR:
         required: false
