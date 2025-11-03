@@ -15,7 +15,7 @@ on:
     #     description: 'Lameduse registry URL'
 
 env:
-  REGISTRY: ${{ vars.LAMEDUSE_REGISTRY }}
+  REGISTRY: ${{ secrets.LAMEDUSE_REGISTRY }}
   IMAGE_NAME: ${{ github.repository }}
 
 concurrency:
@@ -28,7 +28,7 @@ jobs:
     strategy:
       matrix:
         registry:
-          - url: ${{ vars.LAMEDUSE_NPM_HOSTED_REGISTRY }}
+          - url: ${{ secrets.LAMEDUSE_NPM_HOSTED_REGISTRY }}
             auth-token-secret: LAMEDUSE_NPM_HOSTED_REGISTRY_PASSWORD
     steps:
       - name: Check out repository
