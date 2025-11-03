@@ -9,13 +9,15 @@ on:
       LAMEDUSE_NPM_HOSTED_REGISTRY_PASSWORD:
         required: true
         description: 'Lameduse registry token'
+      LAMEDUSE_NPM_HOSTED_REGISTRY:
+        required: true
+        description: 'Lameduse npm registry url'
     # vars:
     #   LAMEDUSE_NPM_HOSTED_REGISTRY:
     #     required: true
     #     description: 'Lameduse registry URL'
 
 env:
-  REGISTRY: ${{ secrets.LAMEDUSE_REGISTRY }}
   IMAGE_NAME: ${{ github.repository }}
 
 concurrency:
