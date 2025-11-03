@@ -19,6 +19,7 @@ on:
 
 env:
   IMAGE_NAME: ${{ github.repository }}
+  REGISTRY_URL: ${{ secrets.LAMEDUSE_NPM_HOSTED_REGISTRY }}
 
 concurrency:
   group: build-push-node-${{ github.ref }}
@@ -30,7 +31,7 @@ jobs:
     strategy:
       matrix:
         registry:
-          - url: ${{ secrets.LAMEDUSE_NPM_HOSTED_REGISTRY }}
+          - url: LAMEDUSE_NPM_HOSTED_REGISTRY
             auth-token-secret: LAMEDUSE_NPM_HOSTED_REGISTRY_PASSWORD
     steps:
       - name: Check out repository
@@ -40,7 +41,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 22
-          registry-url: ${{ matrix.registry.url }}
+          registry-url: ${{ secrets[matrix.registry.url] }}
           scope: "@lameduse"
 
       - name: Publish package
