@@ -43,7 +43,12 @@ jobs:
           node-version: 22
           registry-url: ${{ secrets[matrix.registry.url] }}
           scope: "@lameduse"
-
+      - name: Configure npm registry
+        run: |
+          echo "//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}" > ~/.npmrc
+          echo "always-auth=true" >> ~/.npmrc
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets[matrix.registry.auth-token-secret] }}
       - name: Publish package
         run: |
           yarn && yarn build-lib || exit 1
