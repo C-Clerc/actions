@@ -42,7 +42,7 @@ jobs:
         with:
           node-version: 22
           registry-url: ${{ secrets[matrix.registry.url] }}
-          scope: "@lameduse"
+          scope: "@c-clerc"
       - name: Publish package
         run: |
           yarn && yarn build-lib || exit 1
