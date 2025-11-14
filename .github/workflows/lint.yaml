@@ -8,11 +8,6 @@ on:
         description: 'Lameduse token'
 
   workflow_dispatch:
-
-permissions:
-  contents: read
-  pull-requests: read
-
   
 jobs:
   lint-commits:
