@@ -49,7 +49,7 @@ jobs:
           token: ${{ secrets.LAMEDUSE_TOKEN }}
 
       - name: Release project
-        uses: cycjimmy/semantic-release-action@v2
+        uses: cycjimmy/semantic-release-action@v4
         with:
           semantic_version: 19.0.2
           branch: main
