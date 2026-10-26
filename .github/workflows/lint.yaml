@@ -3,9 +3,9 @@ name: Lint
 on:
   workflow_call:
     secrets:
-      LAMEDUSE_TOKEN:
+      CCLERC_GITHUB_TOKEN:
         required: true
-        description: 'Lameduse token'
+        description: 'Jeton GitHub C-Clerc (CCLERC_GITHUB_TOKEN)'
 
   workflow_dispatch:
   
@@ -82,4 +82,4 @@ jobs:
           fail_if_invalid_branch_name: "true"
           ignore_branch_pattern: "main"
     env:
-      GITHUB_TOKEN: ${{ secrets.LAMEDUSE_TOKEN }}
+      GITHUB_TOKEN: ${{ secrets.CCLERC_GITHUB_TOKEN }}
