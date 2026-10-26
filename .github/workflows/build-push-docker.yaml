@@ -3,15 +3,15 @@ name: Build Push Docker
 on:
   workflow_call:
     secrets:
-      LAMEDUSE_REGISTRY_USERNAME:
+      CCLERC_REGISTRY_USERNAME:
         required: true
-        description: 'Lameduse registry username'
-      LAMEDUSE_REGISTRY_TOKEN:
+        description: 'Identifiant du registre C-Clerc (robot Harbor)'
+      CCLERC_REGISTRY_TOKEN:
         required: true
-        description: 'Lameduse registry token'
-      LAMEDUSE_REGISTRY:
+        description: 'Secret du registre C-Clerc (robot Harbor)'
+      CCLERC_REGISTRY:
         required: true
-        description: 'Lameduse registry url'
+        description: 'Adresse du registre C-Clerc'
     inputs:
       TARGET_DIR:
         required: false
@@ -20,13 +20,13 @@ on:
         default: 'restricted'
 
     # vars:
-    #   LAMEDUSE_REGISTRY:
+    #   CCLERC_REGISTRY:
     #     required: true
-    #     description: 'Lameduse registry URL'
+    #     description: 'Adresse du registre C-Clerc'
 
 env:
   IMAGE_NAME: ${{ inputs.TARGET_DIR }}/${{ github.repository }}
-  REGISTRY: ${{ secrets.LAMEDUSE_REGISTRY }}
+  REGISTRY: ${{ secrets.CCLERC_REGISTRY }}
 
 concurrency:
   group: build-push-docker-${{ github.ref }}
@@ -45,8 +45,8 @@ jobs:
         uses: docker/login-action@v3
         with:
           registry: ${{ env.REGISTRY }}
-          username: ${{ secrets.LAMEDUSE_REGISTRY_USERNAME }}
-          password: ${{ secrets.LAMEDUSE_REGISTRY_TOKEN }}
+          username: ${{ secrets.CCLERC_REGISTRY_USERNAME }}
+          password: ${{ secrets.CCLERC_REGISTRY_TOKEN }}
       - name: Extract metadata (tags, labels) for Docker
         id: meta
         uses: docker/metadata-action@v5
